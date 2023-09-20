@@ -13,7 +13,7 @@ const Home = ({ navigation }) => {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: colors.heavyBlue,
-      paddingTop: 20,
+      paddingTop: 30,
     },
   });
 
