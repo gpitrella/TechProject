@@ -24,11 +24,7 @@ const ProductItem = ({ item, navigation }) => {
       fontSize: 20,
       fontWeight: "900",
       marginLeft: 20,
-    },
-    textMin: {
-      fontSize: 10,
-      fontWeight: "900",
-      marginLeft: 20,
+      textTransform: "capitalize",
     },
     image: {
       marginRight: 10,
@@ -38,7 +34,7 @@ const ProductItem = ({ item, navigation }) => {
   return (
     <View style={styles.container}>
       <Pressable onPress={() => navigation.navigate("productDetail", { item: item })}>
-        <Text style={width < 290 ? styles.textMin : styles.text}>
+        <Text style={styles.text}>
           {item.title}
         </Text>
       </Pressable>

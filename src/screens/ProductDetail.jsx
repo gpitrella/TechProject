@@ -17,7 +17,7 @@ const ProductDetail = ({ route, navigation }) => {
 
   return (
     <SafeAreaView>
-      <Header title="Detalle" navigation={navigation} />
+      <Header title="Detalle Producto" navigation={navigation} />
       <Text style={styles.title}> {item.title} </Text>
       <View style={styles.containerImage}>
         <Image

@@ -18,14 +18,12 @@ const Products = ({ route, navigation }) => {
 
   const { item } = route.params;
 
-  console.log(item);
-
   useEffect(() => {
     const categoryProducts = products.filter((el) => el.category === item);
     setCategoryProd(categoryProducts);
 
     if (text) {
-      const titleProduct = products.filter((el) => el.title === text);
+      const titleProduct = products.filter((el) => el.title.toLocaleLowerCase().includes(text.toLocaleLowerCase()));
       setCategoryProd(titleProduct);
     }
   }, [text, item]);
