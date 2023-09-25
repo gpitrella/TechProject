@@ -4,6 +4,7 @@ import { categories } from "../data/categories";
 import CategoryItem from "./CategoryItem";
 import { colors } from "../theme/colors";
 
+
 const Categories = ({ navigation }) => {
   return <View style={styles.container}></View>;
 };

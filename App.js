@@ -1,13 +1,9 @@
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-
-import Home from "./src/screens/Home";
-import Search from "./src/components/Search";
-import Products from "./src/screens/Products";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-
+import { Provider } from "react-redux";
 import { useFonts } from "expo-font";
-import ProductDetail from "./src/screens/ProductDetail";
-import RootNavigation from "./src/navigation/RootNavigation";
+import TabNav from "./src/navigation/TabNav";
+import { store } from "./src/redux/store";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -20,9 +16,11 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <RootNavigation />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <TabNav />
+      </NavigationContainer>
+    </Provider>
   );
 }
 
