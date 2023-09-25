@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
 import { useFonts } from "expo-font";
 import TabNav from "./src/navigation/TabNav";
-import { store } from "./src/redux/store";
+import { store } from "./src/redux/store.jsx";
 
 export default function App() {
   const [fontsLoaded] = useFonts({

@@ -3,6 +3,7 @@ import React from "react";
 import { colors } from "../theme/colors";
 import { useWindowDimensions } from "react-native";
 import { Dimensions } from "react-native";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 const ProductItem = ({ item, navigation }) => {
 
@@ -19,15 +20,18 @@ const ProductItem = ({ item, navigation }) => {
       justifyContent: "space-between",
       flexDirection: "row",
       alignItems: "center",
+      width: wp('90%'),
     },
     text: {
       fontSize: 20,
       fontWeight: "900",
       marginLeft: 20,
       textTransform: "capitalize",
+      maxWidth: wp('60%'),
     },
     image: {
       marginRight: 10,
+      maxWidth: wp('40%'),
     },
   });
 
