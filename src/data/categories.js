@@ -18,5 +18,5 @@ export const categories = [
     "sunglasses",
     "automotive",
     "motorcycle",
-    "lighting",
+    "lighting"
   ];

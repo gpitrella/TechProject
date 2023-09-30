@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { useFonts } from "expo-font";
 import TabNav from "./src/navigation/TabNav";
 import { store } from "./src/redux/store.jsx";
+import MainNav from "./src/navigation/MainNav";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -17,9 +18,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <TabNav />
-      </NavigationContainer>
+        <MainNav />
     </Provider>
   );
 }

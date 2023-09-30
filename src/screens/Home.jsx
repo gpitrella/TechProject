@@ -7,8 +7,13 @@ import { useNavigation } from "@react-navigation/native";
 import { categories } from "../data/categories";
 import CategoryItem from "../components/CategoryItem";
 import { colors } from "../theme/colors";
+import { useSelector } from "react-redux";
+import { useGetCategoriesQuery } from "../services/ecApi";
 
 const Home = ({ navigation }) => {
+  
+  
+  const { data: categories, isLoading, isError, error } = useGetCategoriesQuery();
   
   const styles = StyleSheet.create({
     container: {
@@ -18,7 +23,16 @@ const Home = ({ navigation }) => {
   });
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ marginBottom: 40, flex: 1, margin: 'auto' }}>
+      {isLoading ? (
+        <View
+          style={{ flex: 1, justifyContent: "center", alignContent: "center" }}
+        >
+          {/* <ActivityIndicator style={{}} size="small" color="#0000ff" /> */}
+          <Text> Cargando datos...</Text>
+        </View>
+      ) : (
+        <>
       <Header title="Categorías" navigation={navigation} />
       <View style={styles.container}>
         <FlatList
@@ -29,6 +43,8 @@ const Home = ({ navigation }) => {
           )}
         />
       </View>
+      </>
+     )}
     </SafeAreaView>
   );
 };

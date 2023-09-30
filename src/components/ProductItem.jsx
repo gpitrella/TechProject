@@ -4,10 +4,17 @@ import { colors } from "../theme/colors";
 import { useWindowDimensions } from "react-native";
 import { Dimensions } from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import { setProductSelected } from "../redux/slice/homeSlice";
+import { useDispatch } from "react-redux";
 
 const ProductItem = ({ item, navigation }) => {
-
   const { height, width } = useWindowDimensions();
+  const dispatch = useDispatch();
+
+  const onHandleProductDetail = () => {
+    dispatch(setProductSelected(item));
+    navigation.navigate("productDetail");
+  }
   const styles = StyleSheet.create({
     container: {
       marginHorizontal: 20,
@@ -37,12 +44,12 @@ const ProductItem = ({ item, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => navigation.navigate("productDetail", { item: item })}>
+      <Pressable onPress={() => onHandleProductDetail()}>
         <Text style={styles.text}>
           {item.title}
         </Text>
       </Pressable>
-      <Pressable onPress={() => navigation.navigate("productDetail", { item: item })}>
+      <Pressable onPress={() => onHandleProductDetail()}>
       <Image
         style={styles.image}
         height={80}
