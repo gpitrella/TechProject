@@ -6,6 +6,7 @@ import {
   Pressable,
   ActivityIndicator,
   ScrollView,
+  Alert
 } from "react-native";
 import React, { useState } from "react";
 import Header from "../components/Header";
@@ -105,6 +106,13 @@ const Profile = ({ navigation }) => {
   //   navigation.navigate("map", { location });
   // };
 
+  const logOut = () => {
+    Alert.alert('Cerrar sesión', '¿Está seguro que desea cerrar sesión?', [
+      { text: 'No', style: 'cancel' }, 
+      { text: 'Si', onPress: () => handleLogout()}
+    ]);
+  }
+
   const handleLogout = () => {
     try {
       dispatch(clearUser());
@@ -115,7 +123,7 @@ const Profile = ({ navigation }) => {
 
   return (
     <ScrollView>
-      <Header title="Mi Perfil" />
+      <Header title="Mi Perfil" navigation={navigation}/>
 
       <View style={{ alignItems: "center", marginTop: 15 }}>
         {isLoading ? (
@@ -172,7 +180,7 @@ const Profile = ({ navigation }) => {
           <View style={styles.containerButton}>
             <Pressable
               style={styles.containerIcon}
-              onPress={() => handleLogout()}
+              onPress={() => logOut()}
             >
               <Ionicons name="log-out-outline" size={24} color="black" />
             </Pressable>

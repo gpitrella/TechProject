@@ -21,7 +21,7 @@ const MainNav = () => {
     }
     console.log('CHECKUSER' ,checkedUser)
     checkUser();
-  }, [user])
+  }, [user, checkedUser])
 
   return (
     <NavigationContainer>
