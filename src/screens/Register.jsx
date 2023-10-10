@@ -35,7 +35,7 @@ const Register = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.title}>Registro</Text>
       <TextInput
-        placeholder="Escriba su email aquí.."
+        placeholder="Email"
         style={styles.input}
         value={email}
         onChangeText={(text) => setEmail(text)}
